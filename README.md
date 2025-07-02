@@ -12,6 +12,7 @@ The pipeline begins by programmatically retrieving the latest news articles from
 The Lambda function performs multiple tasks:
 
   i.It loads news articles using HTTP requests from the News API.
+  
   ii.Each article is processed with the VADER SentimentIntensityAnalyzer to generate sentiment scores (positive, negative, neutral, compound).
 
   # a).1st lambda fuction
