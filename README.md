@@ -6,7 +6,7 @@ This project is a fully serverless pipeline for analyzing the sentiment of real-
 ![Architecture](https://github.com/user-attachments/assets/87cd1712-98c1-4334-9c1c-7c33c2715add)
 
 # 1. Create API key from News API
-Created a lambda function retrieving the latest news articles from a third-party News API. This API provides real-time access to headlines and news stories, which serve as the raw input for the sentiment analysis process.
+Created an API key from the website for retrieving the latest news articles from a third-party News API. This API provides real-time access to headlines and news stories, which serve as the raw input for the sentiment analysis process.
 
 # 2. AWS Lambda – News Ingestion and Sentiment Analysis
 The Lambda function performs multiple tasks:
