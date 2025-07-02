@@ -70,7 +70,7 @@ The dashboard container is deployed to Amazon ECS using Fargate, which allows se
 # 10. Web Dashboard – Access via Browser
 End users can access the live dashboard from a browser using the public IP or domain mapped to ECS. This provides real-time insights into the sentiment of news articles updated every few minutes.
   
- # ii.news sentiment dashboard
+ # a).news sentiment dashboard
 ![12 0](https://github.com/user-attachments/assets/6ffd36e0-fc42-4745-85a3-ac4c135eea8e)
 
 
