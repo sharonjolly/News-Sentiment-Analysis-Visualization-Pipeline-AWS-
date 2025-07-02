@@ -11,9 +11,9 @@ The pipeline begins by programmatically retrieving the latest news articles from
 # 2. AWS Lambda – News Ingestion and Sentiment Analysis
 The Lambda function performs multiple tasks:
 
-  i.It loads news articles using HTTP requests from the News API.
+  a).It loads news articles using HTTP requests from the News API.
   
-  ii.Each article is processed with the VADER SentimentIntensityAnalyzer to generate sentiment scores (positive, negative, neutral, compound).
+  b).Each article is processed with the VADER SentimentIntensityAnalyzer to generate sentiment scores (positive, negative, neutral, compound).
 
   # a).1st lambda fuction
 ![1 0](https://github.com/user-attachments/assets/ce5b5387-6b45-40d9-9ced-0b2e70d0ac3c)
@@ -30,10 +30,10 @@ AWS EventBridge is configured to trigger the Lambda function every 5 minutes. Th
 # 4. Amazon S3 – Raw Data Storage
 Each news article is also saved in its raw format to an S3 bucket. These files are stored in JSON format and serve as a backup or source for batch reprocessing. This ensures no data is lost and enables reproducibility.
 
- # i).files in S3 Bucket
+ # a).files in S3 Bucket
 ![4 0](https://github.com/user-attachments/assets/98417b94-d6dd-4e97-b71f-af87ae4c62f4)
   
- # ii).files in S3 Bucket
+ # b).files in S3 Bucket
 ![5 0](https://github.com/user-attachments/assets/c34629cd-bb0e-45c6-9d87-5fd27c16b0cd)
 
 # 5. Amazon RDS (PostgreSQL) – Data Storage
@@ -58,17 +58,17 @@ Once the dashboard container is built locally, the Docker image is pushed to AWS
 # 9. ECS Fargate – Dashboard Hosting
 The dashboard container is deployed to Amazon ECS using Fargate, which allows serverless container hosting. Fargate manages provisioning, scaling, and availability, and exposes the dashboard on port 8051.
   
- # i).create cluster
+ # a).create cluster
 ![9 0](https://github.com/user-attachments/assets/ac577ac2-fbbd-438d-b194-969e2d9d64da)
   
- # ii).task definition
+ # b).task definition
 ![8 0](https://github.com/user-attachments/assets/88e88760-7e45-4f71-bcf7-ef3099b3e85b)
+
+ # c).create server and task
+![11 0](https://github.com/user-attachments/assets/74bd084d-41ea-4627-a485-9edc006c75d0)
 
 # 10. Web Dashboard – Access via Browser
 End users can access the live dashboard from a browser using the public IP or domain mapped to ECS. This provides real-time insights into the sentiment of news articles updated every few minutes.
-  
- # i).create server and task
-![11 0](https://github.com/user-attachments/assets/74bd084d-41ea-4627-a485-9edc006c75d0)
   
  # ii.news sentiment dashboard
 ![12 0](https://github.com/user-attachments/assets/6ffd36e0-fc42-4745-85a3-ac4c135eea8e)
