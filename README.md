@@ -13,7 +13,7 @@ The Lambda function performs multiple tasks:
 
   a).It loads news articles using HTTP requests from the News API.
   
-  b).Each article is processed with the VADER SentimentIntensityAnalyzer to generate sentiment scores (positive, negative, neutral, compound).
+  b).Each article is processed with the VADER Sentiment Analyzer to generate sentiment scores (positive, negative, neutral, compound).
 
   # a).1st lambda fuction
 ![1 0](https://github.com/user-attachments/assets/ce5b5387-6b45-40d9-9ced-0b2e70d0ac3c)
@@ -28,7 +28,7 @@ The Lambda function performs multiple tasks:
 AWS EventBridge is configured to trigger the Lambda function every 5 minutes. This ensures the system continuously pulls fresh news data without any manual intervention, enabling real-time sentiment updates.
 
 # 4. Amazon S3 – Raw Data Storage
-Each news article is also saved in its raw format to an S3 bucket. These files are stored in JSON format and serve as a backup or source for batch reprocessing. This ensures no data is lost and enables reproducibility.
+Each news article is also saved in its raw format to an S3 bucket. These files are stored in JSON format and serve as a backup or source for batch reprocessing. This ensures no data is lost.
 
  # a).files in S3 Bucket
 ![4 0](https://github.com/user-attachments/assets/98417b94-d6dd-4e97-b71f-af87ae4c62f4)
@@ -49,10 +49,10 @@ The structured output (headlines, timestamps, sentiment scores, etc.) is stored 
 A custom dashboard is created using Streamlit, a Python framework for building interactive data apps. The dashboard is developed locally to visualize sentiment trends and article statistics. It is containerized using Docker.
 
 # 7. Docker Containerization – Dockerfile Creation and Local Build
-A Dockerfile is written to define the environment and dependencies required to run the Streamlit dashboard. This includes instructions for installing Python packages and copying project files. The Docker image is then built locally using this Dockerfile.
+A Dockerfile is written to define the environment and dependencies required to run the Streamlit dashboard. This includes instructions for installing Python packages and copying project files. The Docker image is then built using this Dockerfile.
 
 # 8. ECR (Elastic Container Registry) – Docker Image Storage
-Once the dashboard container is built locally, the Docker image is pushed to AWS ECR (Elastic Container Registry). ECR acts as a managed Docker registry for storing container images securely and makes it easier to deploy to ECS.
+Once the dashboard container is built, the Docker image is pushed to AWS ECR (Elastic Container Registry). ECR acts as a managed Docker registry for storing container images securely and makes it easier to deploy to ECS.
 ![ecr](https://github.com/user-attachments/assets/a516bcc0-e452-4654-ae81-6d89dd549f6e)
 
 # 9. ECS Fargate – Dashboard Hosting
