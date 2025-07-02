@@ -48,11 +48,14 @@ The structured output (headlines, timestamps, sentiment scores, etc.) is stored 
 # 6. Local Development – Streamlit Dashboard
 A custom dashboard is created using Streamlit, a Python framework for building interactive data apps. The dashboard is developed locally to visualize sentiment trends and article statistics. It is containerized using Docker.
 
-# 7. ECR (Elastic Container Registry) – Docker Image Storage
+# 7. Docker Containerization – Dockerfile Creation and Local Build
+A Dockerfile is written to define the environment and dependencies required to run the Streamlit dashboard. This includes instructions for installing Python packages and copying project files. The Docker image is then built locally using this Dockerfile.
+
+# 8. ECR (Elastic Container Registry) – Docker Image Storage
 Once the dashboard container is built locally, the Docker image is pushed to AWS ECR (Elastic Container Registry). ECR acts as a managed Docker registry for storing container images securely and makes it easier to deploy to ECS.
 ![ecr](https://github.com/user-attachments/assets/a516bcc0-e452-4654-ae81-6d89dd549f6e)
 
-# 8. ECS Fargate – Dashboard Hosting
+# 9. ECS Fargate – Dashboard Hosting
 The dashboard container is deployed to Amazon ECS using Fargate, which allows serverless container hosting. Fargate manages provisioning, scaling, and availability, and exposes the dashboard on port 8051.
   
  # i).create cluster
@@ -61,7 +64,7 @@ The dashboard container is deployed to Amazon ECS using Fargate, which allows se
  # ii).task definition
 ![8 0](https://github.com/user-attachments/assets/88e88760-7e45-4f71-bcf7-ef3099b3e85b)
 
-# 9. Web Dashboard – Access via Browser
+# 10. Web Dashboard – Access via Browser
 End users can access the live dashboard from a browser using the public IP or domain mapped to ECS. This provides real-time insights into the sentiment of news articles updated every few minutes.
   
  # i).create server and task
